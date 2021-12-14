@@ -7,13 +7,13 @@ const Clock = () => {
         <ClockWrap>
             <GreetingWrap>
                 <Sun></Sun>
-                <Greeting>Goodmorning</Greeting>
+                <Greeting>Good morning, it's currently</Greeting>
             </GreetingWrap>
             <TimeWrap>
                 <Time>11:37</Time>
                 <ClockTimeZone>BST</ClockTimeZone>
             </TimeWrap>
-            <Location>In London UK</Location>
+            <Location>In London, UK</Location>
         </ClockWrap>
     )
 }

@@ -2,10 +2,10 @@ import styled from "styled-components";
 import {IoIosArrowDropdownCircle} from 'react-icons/io'
 
 export const DropdownContainer = styled.div` 
-    position: absolute;
     max-width: 146px;
-    left: 1129px;
-    top: 606px;
+    align-self:flex-end;
+    margin-left: 389px;
+    transform: translateY(-30px);
     
 `
 
@@ -21,7 +21,7 @@ cursor:pointer;
 `
 export const DropdownArrow = styled(IoIosArrowDropdownCircle)` 
 font-size: 30px;
-margin-left: 5px
+margin-left: 5px;
 `
 
 export const DropdownText = styled.p` 
@@ -29,7 +29,6 @@ export const DropdownText = styled.p`
 font-style: normal;
 font-weight: bold;
 font-size: 16px;
-line-height: 20px;
 letter-spacing: 5px;
 text-transform: uppercase;
 margin-left: 5px;
@@ -41,11 +40,12 @@ opacity: 0.5;
 `
 
 export const DropdownWrap = styled.div` 
-
+min-height: 400px;
+background-color: rgba(255,255,255,0.75);
 `
 
 export const TimezoneWrap = styled.div` 
-
+order: 1;
 `
 
 export const CurrentTimezone = styled.h2` 
@@ -61,7 +61,7 @@ export const YearWrapper = styled.div`
 `
 
 export const DayYear = styled.h2` 
-
+order: 3;
 `
 
 export const DayYearValue = styled.p` 
@@ -69,7 +69,7 @@ export const DayYearValue = styled.p`
 `
 
 export const WeekWrapper = styled.div` 
-
+order:2;
 `
 
 export const DayWeek = styled.h2` 
@@ -81,7 +81,7 @@ export const DayWeekValue = styled.p`
 `
 
 export const WeekNumberWrapper = styled.div` 
-
+order: 4;
 `
 
 export const WeekNumber = styled.h2` 
