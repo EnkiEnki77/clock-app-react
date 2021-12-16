@@ -4,7 +4,7 @@ import {IoIosArrowDropdownCircle} from 'react-icons/io'
 export const DropdownContainer = styled.div` 
     max-width: 146px;
     align-self:flex-end;
-    margin-left: 389px;
+    margin-left: 459px;
     transform: translateY(-30px);
     
 `
@@ -18,10 +18,17 @@ flex-flow: row nowrap;
 align-items: center;
 padding: 0px 10px;
 cursor:pointer;
+
+ &:hover svg{
+    color: #999999;
+}
 `
-export const DropdownArrow = styled(IoIosArrowDropdownCircle)` 
+export const DropdownArrow = styled(IoIosArrowDropdownCircle).attrs(props => ({
+    arrow: props.arrow
+}))` 
 font-size: 30px;
 margin-left: 5px;
+transform: ${props => props.arrow};
 `
 
 export const DropdownText = styled.p` 

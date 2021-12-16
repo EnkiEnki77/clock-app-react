@@ -41,7 +41,7 @@ export const Time = styled.h1`
 font-style: normal;
 font-weight: bold;
 font-size: 200px;
-letter-spacing: -5px;
+letter-spacing: 5px;
 
 color: #FFFFFF;
 margin:0;

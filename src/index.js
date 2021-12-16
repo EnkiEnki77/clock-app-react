@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {configureStore} from '@reduxjs/toolkit';
+import {Provider} from 'react-redux'
+import dropdownReducer from './Features/Dropdown'
+import timeReducer from './Features/Clock'
+
+const store = configureStore({
+  reducer: {
+    Dropdown: dropdownReducer,
+    time: timeReducer
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}><App /></Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

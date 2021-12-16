@@ -1,24 +1,27 @@
 import React from 'react'
 import {DropdownWrap, TimezoneWrap,CurrentTimezone, Timezone, YearWrapper, DayYear, DayYearValue, WeekWrapper, DayWeek, DayWeekValue,WeekNumberWrapper, WeekNumber, WeekNumberValue} from './DropdownCont.styles'
+import { useSelector } from 'react-redux'
 
-const DropdownCont = () => {
+const DropdownCont = ({dayYear, timezone, week, dayWeek}) => {
+    const user = useSelector((state) => state.Dropdown.value)
+    // console.log(dayYear)
     return (
-        <DropdownWrap>
+    <DropdownWrap trans={user.transition} move={user.move} display ={user.display}  className='unhide'>
         <TimezoneWrap>
             <CurrentTimezone>current timezone</CurrentTimezone>
-            <Timezone>Europe/London</Timezone>
+            <Timezone>{timezone}</Timezone>
         </TimezoneWrap>
         <YearWrapper>
             <DayYear>Day of the Year</DayYear>
-            <DayYearValue>295</DayYearValue>
+            <DayYearValue>{dayYear}</DayYearValue>
         </YearWrapper>
         <WeekWrapper>
             <DayWeek>Day of the week</DayWeek>
-            <DayWeekValue>5</DayWeekValue>
+            <DayWeekValue>{dayWeek}</DayWeekValue>
         </WeekWrapper>
         <WeekNumberWrapper>
             <WeekNumber>week number</WeekNumber>
-            <WeekNumberValue>42</WeekNumberValue>
+            <WeekNumberValue>{week}</WeekNumberValue>
         </WeekNumberWrapper>
     </DropdownWrap>
     )

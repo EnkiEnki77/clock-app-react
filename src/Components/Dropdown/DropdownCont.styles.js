@@ -1,15 +1,24 @@
 import styled from "styled-components";
 
-export const DropdownWrap = styled.div` 
-    display: flex;
+export const DropdownWrap = styled.div.attrs(props => ({
+    display: props.display,
+    move: props.move,
+    
+}))` 
     flex-flow: row wrap;
     align-items: center;
-    background-color: white;
-    min-height:400px;
+    /* background-color: white; */
+    color: #ffffff;
+    min-height:335px;
+    margin-top: 10px;
     padding-left:165px;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(40.7742px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10.7742px);
+    display: ${props => props.display};
+    transition: 0.2s all ease-in-out;
+    transform: ${props => props.move};
 `
+
 
 export const TimezoneWrap = styled.div` 
     flex-basis: 50%;
