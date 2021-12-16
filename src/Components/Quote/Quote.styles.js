@@ -9,6 +9,7 @@ export const QuoteContainer = styled.div.attrs(props => ({
     color: #ffffff;
     display: ${props => props.hidden};
     flex-flow: row nowrap;
+    justify-content: space-between;
     margin-left: 165px;
     min-height: 177px;
     margin-top:36px;

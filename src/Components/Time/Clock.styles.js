@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {BsFillSunFill} from 'react-icons/bs'
+import {BsFillMoonFill} from 'react-icons/bs'
 
 export const ClockWrap = styled.div` 
     max-width: 100%;
@@ -28,8 +29,18 @@ export const Greeting = styled.h2`
 
 `
 
-export const Sun = styled(BsFillSunFill)` 
+export const Sun = styled(BsFillSunFill).attrs(props => ({
+    display: props.display
+}))` 
     font-size:22px;
+    display: ${props => props.display};
+`
+
+export const Moon = styled(BsFillMoonFill).attrs(props => ({
+    display: props.display
+}))` 
+    font-size:22px;
+    display: ${props => props.display};
 `
 
 export const TimeWrap = styled.div` 

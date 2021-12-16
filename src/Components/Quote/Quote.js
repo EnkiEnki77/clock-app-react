@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import {QuoteWrap, QuoteP, Writer, QuoteContainer, Refresh} from './Quote.styles'
 import { useSelector } from 'react-redux'
 
@@ -11,6 +11,13 @@ const Quote = ({quotes}) => {
         
       setQuote(quotes[Math.floor(Math.random() * quotes.length)])
     }
+
+    useEffect(() => {
+        setQuote(quotes[Math.floor(Math.random() * quotes.length)])
+        return () => {
+            
+        }
+    }, [quotes])
     return (
         <QuoteContainer trans = {user.transition} hidden = {user.hidden} className='hide'>
             <QuoteWrap>
