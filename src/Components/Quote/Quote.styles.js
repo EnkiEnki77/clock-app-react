@@ -8,17 +8,21 @@ export const QuoteContainer = styled.div.attrs(props => ({
     max-width: 573px;
     color: #ffffff;
     display: ${props => props.hidden};
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     margin-left: 165px;
+    min-height: 177px;
     margin-top:36px;
     transition: 0.2s all ease-in-out;
 `
 
 export const QuoteWrap = styled.div` 
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    /* min-height: 126px; */
+    /* align-items: center; */
+    
+    /* padding-right: 20px */
+
 `
 
 export const QuoteP = styled.p` 
@@ -27,17 +31,24 @@ export const QuoteP = styled.p`
     font-weight: normal;
     font-size: 18px;
     line-height: 30px;
+    align-self: flex-start;
+    /* min-height: 90px; */
+    /* max-width: 400px; */
 `
 
 export const Refresh = styled(FiRefreshCw)` 
     
     font-size: 30px;
-    transform: translateY(-25px);
+    /* transform: translateY(-25px); */
     color: #ffffff;
     font-size: 40px;
     mix-blend-mode: normal;
     opacity: 0.6;
     cursor: pointer;
+    min-height: 40px;
+    max-width: 19px;
+    margin-left: 20px;
+    margin-top: 15px;
 `
 
 export const Writer = styled.h2` 

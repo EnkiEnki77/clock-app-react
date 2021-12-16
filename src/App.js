@@ -16,8 +16,12 @@ import {useEffect, useState}  from 'react'
 function App() {
   let timezoneRemove;
   let timeSlice;
+  let quoteText;
+  let quoteAuthor;
+
   const [data, setData] = useState([])
   const [data2, setData2] = useState([])
+  const [data3, setData3] = useState('text')
   const [background, setBackground] = useState('')
 
   useEffect(() => {
@@ -30,19 +34,32 @@ function App() {
 
         fetchData()
 
-  }, [])
-
-  useEffect(() => {
-    let api = "http://ip-api.com/json/"
-    async function fetchData(){
-        await fetch(api)
+    let api2 = "http://ip-api.com/json/"
+    async function fetchData2(){
+        await fetch(api2)
         .then(response => {return response.json()})
         .then(json => {setData2(json);})
       }
 
-        fetchData()
+        fetchData2()
+    
+        
+      
 
   }, [])
+
+  useEffect(() => {
+    let api3 = "https://type.fit/api/quotes"
+     function fetchData3(){
+        fetch(api3)
+        .then(response => {return response.json()})
+        .then(json => {setData3(json);})
+      }
+
+        fetchData3()
+  }, [])
+
+  
 
   if(data.timezone !== undefined){
    let  timezone = data.timezone;
@@ -50,8 +67,11 @@ function App() {
     console.log(timezoneRemove)
     let time = data.datetime.slice(11, 16)
     timeSlice = time;
+    
     // data.timezone.replace('_', '')
   }
+
+  console.log(quoteText, quoteAuthor)
 
   useEffect(() => {
     if(parseInt(timeSlice) >= 5 && parseInt(timeSlice) < 18  ){
@@ -66,15 +86,13 @@ function App() {
   // let yes = timezoneRemove
 
   
-console.log(data2)
-  
 
   const user = useSelector((state) => state.Dropdown.value)
   return (
     <Container >
         <Global/>
         <BgImg src={background}/>
-        <Quote/>
+        <Quote quotes = {data3}/>
         <Flex move = {user.move} className='flex'>
           <Clock abbreviation={data.abbreviation} time = {timeSlice} city = {data2.city} country = {data2.countrycode} state = {data2.region}/>
           <DropdownButt/>

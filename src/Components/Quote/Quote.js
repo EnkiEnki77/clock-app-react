@@ -1,16 +1,24 @@
-import React from 'react'
+import {React, useState} from 'react'
 import {QuoteWrap, QuoteP, Writer, QuoteContainer, Refresh} from './Quote.styles'
 import { useSelector } from 'react-redux'
 
-const Quote = () => {
+const Quote = ({quotes}) => {
     const user = useSelector((state) => state.Dropdown.value)
+    const [quote, setQuote] = useState('')
+
+    function randomQuote(){
+        
+        
+      setQuote(quotes[Math.floor(Math.random() * quotes.length)])
+    }
     return (
         <QuoteContainer trans = {user.transition} hidden = {user.hidden} className='hide'>
             <QuoteWrap>
-                <QuoteP>“The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.”</QuoteP>
-                <Refresh></Refresh>
+                <QuoteP>{quote.text}</QuoteP>
+                <Writer>{quote.author}</Writer>
             </QuoteWrap>
-            <Writer>Ada Lovelace</Writer>
+            <Refresh onClick = {randomQuote}></Refresh>
+            
         </QuoteContainer>
     )
 }
