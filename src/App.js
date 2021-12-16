@@ -23,6 +23,8 @@ function App() {
   const [data2, setData2] = useState([])
   const [data3, setData3] = useState('text')
   const [background, setBackground] = useState('')
+  const [dropdown, setDropdown] = useState('')
+  const [color, setColor] = useState('')
 
   useEffect(() => {
     let api = "http://worldtimeapi.org/api/ip"
@@ -77,15 +79,21 @@ function App() {
     if(parseInt(timeSlice) >= 5 && parseInt(timeSlice) < 18  ){
         console.log('afternoon')
         setBackground(dayImage) 
+        setDropdown('rgba(255,255,255, 0.7)')
+        setColor('#000000')
+        console.log(dropdown)
     }else if(parseInt(timeSlice) >= 18 ){
       console.log('afternoon')
       setBackground(nightImage) 
+      setDropdown('rgba(0,0,0, 0.7)')
+      setColor('#ffffff')
+      
   }
-}, [timeSlice])
+}, [timeSlice, dropdown])
 
   // let yes = timezoneRemove
 
-  
+  console.log(dropdown)
 
   const user = useSelector((state) => state.Dropdown.value)
   return (
@@ -97,7 +105,7 @@ function App() {
           <Clock abbreviation={data.abbreviation} time = {timeSlice} city = {data2.city} country = {data2.countrycode} state = {data2.region}/>
           <DropdownButt/>
         </Flex>
-        <DropdownCont dayWeek = {data.day_of_week} week = {data.week_number} timezone = {timezoneRemove} dayYear = {data.day_of_year}/>
+        <DropdownCont color={color} background={dropdown} dayWeek = {data.day_of_week} week = {data.week_number} timezone = {timezoneRemove} dayYear = {data.day_of_year}/>
     </Container>
   );
 }

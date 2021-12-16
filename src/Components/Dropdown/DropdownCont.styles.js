@@ -3,16 +3,18 @@ import styled from "styled-components";
 export const DropdownWrap = styled.div.attrs(props => ({
     display: props.display,
     move: props.move,
-    
+    background: props.background,
+    color: props.color
 }))` 
+    /* display: flex; */
     flex-flow: row wrap;
     align-items: center;
     /* background-color: white; */
-    color: #ffffff;
+    color: ${props => props.color};
     min-height:335px;
     margin-top: 10px;
     padding-left:165px;
-    background: rgba(0, 0, 0, 0.7);
+    background-color: ${props => props.background};
     backdrop-filter: blur(10.7742px);
     display: ${props => props.display};
     transition: 0.2s all ease-in-out;
@@ -44,7 +46,7 @@ margin: 0;
 `
 
 export const YearWrapper = styled.div` 
-
+    margin-left: 50px;
 `
 
 export const DayYear = styled.h2` 
@@ -88,7 +90,7 @@ margin: 0;
 `
 
 export const WeekNumberWrapper = styled.div` 
-
+ margin-left: 50px;
 `
 
 export const WeekNumber = styled.h2` 
@@ -106,5 +108,17 @@ font-style: normal;
 font-weight: bold;
 font-size: 56px;
 margin: 0;
+`
+
+export const Line = styled.div` 
+     border-left: 2px solid #303030 ;
+  height: 252px;
+  position: absolute;
+  left: 52%;
+  margin-left: -3px;
+  top: 13%;
+mix-blend-mode: normal;
+opacity: 0.2;
+margin-right:100px
 `
 

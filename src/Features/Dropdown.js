@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-const initialStateValue = {display: 'none', hidden: 'flex', move: 'none', buttonText: 'More',  arrow: 'none'}
+const initialStateValue = {display: 'none', hidden: 'flex', move: 'none', buttonText: 'More',  arrow: 'none', background: 'rgba(255,255,255,0.7)'}
 
 const dropdownSlice = createSlice({
     name: 'dropdown',
